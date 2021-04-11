@@ -12,14 +12,17 @@ export default {
       commit(types.CRIAR_TAREFA, { tarefa: response.data });
     });
   },
-  editarTarefa: ({ commit }, { tarefa }) => {
-    return tarefasServices.editarTarefa(tarefa).then((response) => {
-      commit(types.EDITAR_TAREFA, { tarefa: response.data });
-    });
+  editarTarefa: async ({ commit }, { tarefa }) => {
+    const response = await tarefasServices.putTarefa(tarefa);
+    commit(types.EDITAR_TAREFA, { tarefa: response.data });
   },
-  deletarTarefa: ({ commit }, { tarefa }) => {
-    return tarefasServices.deleteTarefa(tarefa).then((response) => {
-      commit(types.EXCLUIR_TAREFA, { tarefa: response.data });
-    });
+  deletarTarefa: async ({ commit }, { tarefa }) => {
+    const response = tarefasServices.deleteTarefa(tarefa.id);
+    commit(types.EXCLUIR_TAREFA, { tarefa: response.data });
+  },
+  alterarStatusTarefa: ({ dispatch }, payload) => {
+    const tarefa = Object.assign({}, payload.tarefa);
+    tarefa.tarefaRealizada = !tarefa.tarefaRealizada;
+    dispatch("editarTarefa", { tarefa });
   },
 };

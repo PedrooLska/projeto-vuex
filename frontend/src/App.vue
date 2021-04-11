@@ -3,7 +3,7 @@
     <h1>Tarefas</h1>
     <lista-tarefas
       :titulo="'Lista Tarefas'"
-      v-for="tarefa in listaTarefas"
+      v-for="tarefa in tarefas"
       :key="'Tarefas' + tarefa.id"
       :tarefa="tarefa"
     />
@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     ...mapState(["listaTarefas"]),
-    ...mapGetters(["tarefasRealizadas"]),
+    ...mapGetters(["tarefas", "tarefasRealizadas"]),
   },
   methods: {
     ...mapActions(["listarTarefas"]),

@@ -4,15 +4,22 @@
       {{ tarefa.id }} - {{ tarefa.nome }}
 
       <div>
-        <i class="fas fa-check-square text-secondary fa-lg mr-5"></i>
-        <i class="fas fa-edit text-info fa-lg mr-3"></i
-        ><i class="fas fa-trash-alt text-danger fa-lg"></i>
+        <a href="#" @click="alterarStatusTarefa({ tarefa: tarefa })"
+          ><i class="fas fa-check-square text-secondary fa-lg mr-5"></i
+        ></a>
+
+        <i class="fas fa-edit text-info fa-lg mr-3"></i>
+
+        <a href="#" @click="deletarTarefa({ tarefa: tarefa })"
+          ><i class="fas fa-trash-alt text-danger fa-lg"></i>
+        </a>
       </div>
     </li>
   </ul>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   props: {
     titulo: {
@@ -23,6 +30,9 @@ export default {
       type: Object,
       default: () => {},
     },
+  },
+  methods: {
+    ...mapActions(["alterarStatusTarefa", "deletarTarefa"]),
   },
 };
 </script>
