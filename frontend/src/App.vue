@@ -1,9 +1,19 @@
 <template>
   <div class="container mt-4">
-    <lista-tarefas :titulo="'Lista Tarefas'" :listaTarefas="listaTarefas" />
+    <h1>Tarefas</h1>
+    <lista-tarefas
+      :titulo="'Lista Tarefas'"
+      v-for="tarefa in listaTarefas"
+      :key="'Tarefas' + tarefa.id"
+      :tarefa="tarefa"
+    />
+
+    <h2 class="mt-5">Tarefas Realizadas</h2>
     <lista-tarefas-realizadas
       :titulo="'Lista Tarefas Realizadas'"
-      :listaTarefas="tarefasRealizadas"
+      v-for="tarefa in tarefasRealizadas"
+      :key="'Tarefas Realizadas' + tarefa.id"
+      :tarefa="tarefa"
     />
   </div>
 </template>

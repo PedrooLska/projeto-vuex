@@ -1,6 +1,6 @@
 {
   "listaTarefas": [
-    { "id": 1, "nome": "Arrrumar Cozinha", "tarefaRealizada": false },
+    { "id": 1, "nome": "Arrrumar Cozinha", "tarefaRealizada": true },
     { "id": 2, "nome": "Arrumar o Quarto", "tarefaRealizada": false },
     { "id": 3, "nome": "Arrumar a Cama", "tarefaRealizada": false }
   ]

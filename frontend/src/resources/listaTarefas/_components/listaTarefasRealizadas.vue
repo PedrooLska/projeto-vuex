@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <h2>{{ titulo }}</h2>
-    <h2>{{ listaTarefas }}</h2>
-  </div>
+  <ul class="list-group">
+    <li class="list-group-item">{{ tarefa.id }} - {{ tarefa.nome }}</li>
+  </ul>
 </template>
 
 <script>
@@ -12,9 +11,9 @@ export default {
       type: String,
       default: () => "",
     },
-    listaTarefas: {
-      type: Array,
-      default: () => [],
+    tarefa: {
+      type: Object,
+      default: () => {},
     },
   },
 };
